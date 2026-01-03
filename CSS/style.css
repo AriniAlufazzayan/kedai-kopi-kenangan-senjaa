@@ -107,7 +107,6 @@ body {
     transform: scaleY(1);
 }
 
-
 .navbar .search-form  input {
     height: 100%;
     width: 100%;
@@ -122,13 +121,19 @@ body {
     margin-right: 1.5rem;
     color: var(--bg); 
 }
-
+/* Tombol navbar */
+.icon-cart {
+    cursor: pointer;
+    font-size: 2rem;
+    margin-left: 1rem;
+    color: var(--primary);
+}
 
 /* shopping cart */
 .shopping-cart{
     position: fixed;
     top: 80px;             
-    right: -100%;
+    right: -28rem;
     height: calc(100vh - 80px); 
     width: 28rem;
     padding: 1.5rem;
@@ -614,7 +619,7 @@ body {
 
 .contact .row {
     display: flex;
-    margin-top: 26rem;
+    margin-top: 0rem;
     background-color: #222;
 }
 

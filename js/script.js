@@ -3,11 +3,13 @@ document.querySelector('#hamburger-menu').onclick = () => {
     navbarNav.classList.toggle('active');
 };
 
+// toggle class active untuk search form
 const searchForm = document.querySelector('.search-form');
-document.querySelector('#search-button').onclick = (e) => {
+const searchBox = document.querySelector('#search-box');
+
+document.querySelector('#search-button').onclick = () => {
     searchForm.classList.toggle('active');
-    e.preventDefault();
-};
+}
 
 const menus = [
 {
@@ -37,4 +39,31 @@ menus.forEach(menu => {
     <p class="menu-card-price">${menu.harga}</p>
     </div>
 `;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const shoppingCart = document.querySelector('.shopping-cart');
+    const cartBtn = document.querySelector('#shopping-cart-button');
+    const removeBtns = document.querySelectorAll('.remove-item');
+
+    // Toggle shopping cart
+    if(cartBtn && shoppingCart){
+        cartBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            shoppingCart.classList.toggle('active');
+        });
+    } else {
+        console.error('Tombol navbar atau shopping cart tidak ditemukan!');
+    }
+
+    // Hapus item dari cart
+    removeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const item = btn.closest('.cart-item');
+            if(item){
+                item.remove();
+            }
+        });
+    });
 });
