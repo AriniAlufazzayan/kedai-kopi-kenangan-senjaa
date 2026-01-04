@@ -1,38 +1,43 @@
 const navbarNav = document.querySelector('.navbar-nav');
-document.querySelector('#hamburger-menu').onclick = () => {
+const hamburgerMenu = document.querySelector('#hamburger-menu');
+const searchForm = document.querySelector('.search-form');
+const shoppingCart = document.querySelector('.shopping-cart');
+const searchButton = document.querySelector('#search-button');
+const cartButton = document.querySelector('#shopping-cart-button');
+
+// hamburger menu
+hamburgerMenu.onclick = () => {
     navbarNav.classList.toggle('active');
 };
 
-// toggle class active untuk search form
-const searchForm = document.querySelector('.search-form');
-const searchBox = document.querySelector('#search-box');
-
-document.querySelector('#search-button').onclick = () => {
+// search
+searchButton.onclick = () => {
     searchForm.classList.toggle('active');
-}
+};
 
-// toggle class active untuk shopping cart
-const shoppingCart =document.querySelector('.shopping-cart');
-document.querySelector('#shopping-cart-button').onclick = (e ) => {
+// shopping cart
+cartButton.onclick = (e) => {
     shoppingCart.classList.toggle('active');
     e.preventDefault();
 };
 
-// klik di luar elemen 
-const hm = document.querySelector('#humberger-menu');
-const sb = document.querySelector('#search-button');
-const sc = document.querySelector('#shopping-cart-button');
+// klik di luar elemen
+document.addEventListener('click', function (e) {
 
+    if (!hamburgerMenu.contains(e.target) && !navbarNav.contains(e.target)) {
+        navbarNav.classList.remove('active');
+    }
 
+    if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
+        searchForm.classList.remove('active');
+    }
 
-if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
-    searchForm.classList.remove('active');
-    
-}
-if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
-    shoppingCart.classList.remove('active');
+    if (!cartButton.contains(e.target) && !shoppingCart.contains(e.target)) {
+        shoppingCart.classList.remove('active');
+    }
 
-}
+});
+
 const menus = [
 {
     nama: "Espresso",

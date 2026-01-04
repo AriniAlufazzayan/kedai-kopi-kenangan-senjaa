@@ -187,6 +187,12 @@ body {
     color: var(--primary);
 }
 
+.rating svg {
+    width: 18px;
+    height: 18px;
+    stroke: #f4c150;   
+    fill: #f4c150;     
+}
 
 
 /* Hero Section */
