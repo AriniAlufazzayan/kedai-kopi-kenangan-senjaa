@@ -21,7 +21,7 @@ document.querySelector('#shopping-cart-button').onclick = (e ) => {
 // klik di luar elemen 
 const hm = document.querySelector('#humberger-menu');
 const sb = document.querySelector('#search-button');
-const sc = document.querySelector('#shopping-cart');
+const sc = document.querySelector('#shopping-cart-button');
 
 
 
