@@ -18,7 +18,21 @@ document.querySelector('#shopping-cart-button').onclick = (e ) => {
     e.preventDefault();
 };
 
+// klik di luar elemen 
+const hm = document.querySelector('#humberger-menu');
+const sb = document.querySelector('#search-button');
+const sc = document.querySelector('#shopping-cart');
 
+
+
+if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
+    searchForm.classList.remove('active');
+    
+}
+if (!sc.contains(e.target) && !shoppingCart.contains(e.target)) {
+    shoppingCart.classList.remove('active');
+
+}
 const menus = [
 {
     nama: "Espresso",
