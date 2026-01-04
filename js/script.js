@@ -41,3 +41,4 @@ menus.forEach(menu => {
 `;
 });
 
+// toggle class 
