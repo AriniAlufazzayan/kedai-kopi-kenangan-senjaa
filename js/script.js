@@ -41,29 +41,10 @@ menus.forEach(menu => {
 `;
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const shoppingCart = document.querySelector('.shopping-cart');
-    const cartBtn = document.querySelector('#shopping-cart-button');
-    const removeBtns = document.querySelectorAll('.remove-item');
-
-    // Toggle shopping cart
-    if(cartBtn && shoppingCart){
-        cartBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            shoppingCart.classList.toggle('active');
-        });
-    } else {
-        console.error('Tombol navbar atau shopping cart tidak ditemukan!');
-    }
-
-    // Hapus item dari cart
-    removeBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const item = btn.closest('.cart-item');
-            if(item){
-                item.remove();
-            }
-        });
-    });
-});
+// toggle class active untuk shopping cart
+const shoppingCart = document.querySelector('.shopping-cart');
+document.querySelector('#shopping-cart-button').onclick = (e) => {
+    shoppingCart.classList.toggle('active');
+    e.preventDefault();
+};
+    
