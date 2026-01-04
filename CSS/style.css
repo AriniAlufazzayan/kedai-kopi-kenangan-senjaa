@@ -132,8 +132,8 @@ body {
 /* shopping cart */
 .shopping-cart{
     position: fixed;
-    top: 80px;             
-    right: -28rem;
+    top: 100px;             
+    right: -100rem;
     height: calc(100vh - 80px); 
     width: 28rem;
     padding: 1.5rem;
