@@ -1,79 +1,77 @@
+// Toggle class active unuk humberger menu
 const navbarNav = document.querySelector('.navbar-nav');
-const hamburgerMenu = document.querySelector('#hamburger-menu');
-const searchForm = document.querySelector('.search-form');
-const shoppingCart = document.querySelector('.shopping-cart');
-const searchButton = document.querySelector('#search-button');
-const cartButton = document.querySelector('#shopping-cart-button');
-
-// hamburger menu
-hamburgerMenu.onclick = () => {
+// ketikkan hamburger menu di klik
+document.querySelector('#hamburger-menu').onclick = () => {
     navbarNav.classList.toggle('active');
 };
 
-// search
-searchButton.onclick = () => {
-    searchForm.classList.toggle('active');
-};
+// Toogle class active untuk search form
+const searchForm = document.querySelector('.search-form');
+const searchBox = document.querySelector('#search-box');
 
-// shopping cart
-cartButton.onclick = (e) => {
-    shoppingCart.classList.toggle('active');
+
+document.querySelector('#search-button').onclick = (e) => {
+    searchForm.classList.toggle('active');
+    searchBox.focus();
     e.preventDefault();
 };
 
-// klik di luar elemen
-document.addEventListener('click', function (e) {
+// Toggle class active untuk shopping cart
+const shoopingCart = document.querySelector('.shopping-cart');
 
-    if (!hamburgerMenu.contains(e.target) && !navbarNav.contains(e.target)) {
+document.querySelector('#shopping-cart-button').onclick = (e) => {
+    shoopingCart.classList.toggle('active');
+    e.preventDefault();
+
+};
+
+
+
+// Klik di luar elemen
+const hm = document.querySelector('#hamburger-menu');
+const sb = document.querySelector('#search-button');
+const sc = document.querySelector('#shopping-cart-button')
+
+document.addEventListener('click', function (e) {
+    if (!hm.contains(e.target) && !navbarNav.contains(e.target)) {
         navbarNav.classList.remove('active');
     }
 
-    if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
-        searchForm.classList.remove('active');
+
+    if (!sb.contains(e.target) && !searchForm.contains(e.target)) {
+    searchForm.classList.remove('active');
     }
 
-    if (!cartButton.contains(e.target) && !shoppingCart.contains(e.target)) {
-        shoppingCart.classList.remove('active');
+    if (!sc.contains(e.target) && !shoopingCart.contains(e.target)) {
+    shoopingCart.classList.remove('active');
     }
-
-});
-
-const menus = [
-{
-    nama: "Espresso",
-    harga: "IDR 15K",
-    gambar: "img/menu/espresso.jpg"
-},
-{
-    nama: "Kopi Susu",
-    harga: "IDR 20K",
-    gambar: "img/menu/kopi-susu.jpg"
-},
-{
-    nama: "Latte",
-    harga: "IDR 22K",
-    gambar: "img/menu/latte.jpg"
-}
-];
-
-const menuList = document.getElementById("menu-list");
-
-menus.forEach(menu => {
-    menuList.innerHTML += `
-    <div class="menu-card">
-    <img src="${menu.gambar}" class="menu-card-img">
-    <h3 class="menu-card-title">- ${menu.nama} -</h3>
-    <p class="menu-card-price">${menu.harga}</p>
-    </div>
-`;
 });
 
 
 // modal box
 const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButton = document.querySelector('.item-detail-button');
+const itemDetailButtons = document.querySelectorAll('.item-detail-button');
 
-itemDetailButton.onclick = (e) => {
+itemDetailButtons.forEach((btn) => {
+    btn.onclick = (e) => {
     itemDetailModal.style.display = 'flex';
     e.preventDefault();
+
+
 };
+
+})
+
+
+// klik tombol close modal
+document.querySelector('.modal .close-icon').onclick = (e) => {
+    itemDetailModal.style.display ='none';
+    e.preventDefault();
+};
+
+// klik di luar modal
+window.onclick = (e) => {
+    if (e.target === itemDetailModal) {
+        itemDetailModal.style.display = 'none';
+    }
+}
